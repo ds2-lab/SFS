@@ -1,0 +1,17 @@
+using existing OL directory at /users/yuqi15/open-lambda/default-ol
+2021/07/14 20:52:01 save PID 59093 to file /users/yuqi15/open-lambda/default-ol/worker/worker.pid
+2021/07/14 20:52:01 Start Lambda Server
+2021/07/14 20:52:01 Storage dir at /users/yuqi15/open-lambda/default-ol/worker/code
+2021/07/14 20:52:01 Storage dir at /users/yuqi15/open-lambda/default-ol/worker/scratch
+2021/07/14 20:52:01 Create SandboxPool
+2021/07/14 20:52:01 Create DepTracer
+2021/07/14 20:52:01 Create PackagePuller
+2021/07/14 20:52:01 Create HandlerPuller
+2021/07/14 20:52:01 Setups Handlers
+2021/07/14 20:52:01 Execute handler by POSTing to localhost:5003/run/<lambda>
+2021/07/14 20:52:01 Get status by sending request to localhost:5003/status
+2021/07/14 20:52:01 Receive request to /pid
+2021/07/14 20:52:03 received kill signal, cleaning up
+2021/07/14 20:52:03 save stats to /users/yuqi15/open-lambda/default-ol/worker/stats.json
+2021/07/14 20:52:03 remove worker.pid
+2021/07/14 20:52:03 exiting

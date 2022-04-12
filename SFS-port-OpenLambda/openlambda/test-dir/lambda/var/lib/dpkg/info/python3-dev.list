@@ -1,0 +1,16 @@
+/.
+/usr
+/usr/bin
+/usr/lib
+/usr/lib/x86_64-linux-gnu
+/usr/lib/x86_64-linux-gnu/pkgconfig
+/usr/share
+/usr/share/doc
+/usr/share/man
+/usr/share/man/man1
+/usr/bin/python3-config
+/usr/bin/python3m-config
+/usr/lib/x86_64-linux-gnu/pkgconfig/python3.pc
+/usr/share/doc/python3-dev
+/usr/share/man/man1/python3-config.1.gz
+/usr/share/man/man1/python3m-config.1.gz

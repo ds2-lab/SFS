@@ -1,0 +1,26 @@
+#! /bin/sh
+
+set -e
+
+if [ "$1" = configure ]; then
+  if [ -d /usr/include/python3.6 ] && [ ! -h /usr/include/python3.6 ]; then
+    if rmdir /usr/include/python3.6 2> /dev/null; then
+      ln -sf python3.6mu /usr/include/python3.6
+    else
+      echo >&2 "WARNING: non-empty directory on upgrade: /usr/include/python3.6"
+      ls -l /usr/include/python3.6
+    fi
+  fi
+  if [ -d /usr/lib/python3.6/config ] && [ ! -h /usr/lib/python3.6/config ]; then
+    if rmdir /usr/lib/python3.6/config 2> /dev/null; then
+      ln -sf config-3.6mu /usr/lib/python3.6/config
+    else
+      echo >&2 "WARNING: non-empty directory on upgrade: /usr/lib/python3.6/config"
+      ls -l /usr/lib/python3.6/config
+    fi
+  fi
+fi
+
+
+
+exit 0

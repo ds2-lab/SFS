@@ -1,0 +1,37 @@
+{
+  "worker_dir": "/users/yuqi15/open-lambda/test-dir/worker",
+  "worker_port": "5000",
+  "sandbox": "sock",
+  "server_mode": "lambda",
+  "registry": "/users/yuqi15/open-lambda/test-dir/registry",
+  "registry_cache_ms": 5000,
+  "Pkgs_dir": "/users/yuqi15/open-lambda/test-dir/lambda/packages",
+  "pip_mirror": "",
+  "mem_pool_mb": 128106,
+  "import_cache_tree": "",
+  "SOCK_base_path": "/users/yuqi15/open-lambda/test-dir/lambda",
+  "sandbox_config": {},
+  "docker_runtime": "",
+  "limits": {
+    "procs": 10,
+    "mem_mb": 50,
+    "swappiness": 0,
+    "installer_mem_mb": 500
+  },
+  "features": {
+    "reuse_cgroups": false,
+    "import_cache": true,
+    "downsize_paused_mem": true
+  },
+  "trace": {
+    "cgroups": false,
+    "memory": false,
+    "evictor": false,
+    "package": false
+  },
+  "storage": {
+    "root": "private",
+    "scratch": "",
+    "code": ""
+  }
+}

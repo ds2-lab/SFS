@@ -1,0 +1,68 @@
+{
+  "runs": [
+    {
+      "test": "ping_test",
+      "params": {},
+      "pass": true,
+      "conf": {
+        "worker_dir": "/users/yuqi15/open-lambda/test-dir/worker",
+        "worker_port": "5000",
+        "sandbox": "docker",
+        "server_mode": "lambda",
+        "registry": "/users/yuqi15/open-lambda/test-registry",
+        "registry_cache_ms": 5000,
+        "Pkgs_dir": "/users/yuqi15/open-lambda/test-dir/lambda/packages",
+        "pip_mirror": "",
+        "mem_pool_mb": 128106,
+        "import_cache_tree": "",
+        "SOCK_base_path": "/users/yuqi15/open-lambda/test-dir/lambda",
+        "sandbox_config": {},
+        "docker_runtime": "",
+        "limits": {
+          "procs": 10,
+          "mem_mb": 50,
+          "swappiness": 0,
+          "installer_mem_mb": 250
+        },
+        "features": {
+          "reuse_cgroups": false,
+          "import_cache": false,
+          "downsize_paused_mem": true
+        },
+        "trace": {
+          "cgroups": false,
+          "memory": false,
+          "evictor": false,
+          "package": false
+        },
+        "storage": {
+          "root": "private",
+          "scratch": "",
+          "code": ""
+        }
+      },
+      "seconds": 1.276111125946045,
+      "total_seconds": 1.4924304485321045,
+      "stats": {
+        "pings_per_sec": 783.6388661937398
+      },
+      "ol-stats": {},
+      "errors": [],
+      "worker_tail": [
+        "2021/07/10 20:50:56 Receive request to /status",
+        "2021/07/10 20:50:56 Receive request to /status",
+        "2021/07/10 20:50:56 Receive request to /status",
+        "2021/07/10 20:50:56 Receive request to /status",
+        "2021/07/10 20:50:56 Receive request to /status",
+        "2021/07/10 20:50:56 received kill signal, cleaning up",
+        "2021/07/10 20:50:56 save stats to /users/yuqi15/open-lambda/test-dir/worker/stats.json",
+        "2021/07/10 20:50:56 remove worker.pid",
+        "2021/07/10 20:50:56 exiting",
+        ""
+      ]
+    }
+  ],
+  "passed": 1,
+  "failed": 0,
+  "seconds": 3.792978525161743
+}
