@@ -14,9 +14,14 @@
 
 ### Installing
 
-#### Standalone
+#### SFS-Standalone
 
 * go build && ./test.sh
 
+#### SFS-port OpenLambda
+
+* openlambda
+
+make imgs/lambda && make install
 * How/where to download your program
 * Any modifications needed to be made to files/folders
