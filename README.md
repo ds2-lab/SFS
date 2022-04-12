@@ -16,7 +16,7 @@
 
 #### SFS-Standalone
 
-* go build && ./test.sh
+```go build && ./test.sh```
 
 #### SFS-port OpenLambda
 
