@@ -25,5 +25,11 @@
 make imgs/lambda && make install #install openlambda
 ./creash.sh && python cp_default.py && python replace.py #set up 64 workers
 ```
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* SFS scheduler
+```
+go build & go run main.go #start SFS scheduler
+```
+* Http client
+```
+go build & go run run.go
+```
