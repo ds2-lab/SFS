@@ -23,7 +23,7 @@
 * openlambda
 ```
 make imgs/lambda && make install #install openlambda
-./creash.sh && python cp_default.py && python replace.py #set up 64 workers
+./create.sh && python cp_default.py && python replace.py #set up 64 workers
 ```
 * SFS scheduler
 ```
