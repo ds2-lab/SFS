@@ -31,5 +31,5 @@ go build & go run main.go #start SFS scheduler
 ```
 * Http client
 ```
-go build & go run run.go
+go build & go run run.go #submit requests
 ```
