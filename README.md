@@ -20,7 +20,7 @@
 
 #### SFS-port OpenLambda
 
-* openlambda
+##### openlambda
 
 make imgs/lambda && make install
 * How/where to download your program
