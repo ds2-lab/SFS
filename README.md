@@ -20,8 +20,10 @@
 
 #### SFS-port OpenLambda
 
-##### openlambda
-
-make imgs/lambda && make install
+* openlambda
+```
+make imgs/lambda && make install #install openlambda
+./creash.sh && python cp_default.py && python replace.py #set up 64 workers
+```
 * How/where to download your program
 * Any modifications needed to be made to files/folders
