@@ -14,6 +14,12 @@
 
 ### Installing
 
+#### SFS-Standalone-image
+
+```
+docker run --privileged --name test --mount type=bind,source="$(pwd)"/result,target=/result fuyuqi1995/sfs
+```
+
 #### SFS-Standalone
 
 ```go build && ./test.sh```
