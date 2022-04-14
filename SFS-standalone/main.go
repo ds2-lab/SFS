@@ -41,7 +41,7 @@ func main(){
 	fmt.Println("logs main cpu", *cpu)
 	flag.Usage()
 	if policy == "m"{
-		testMLFQ(*cpu, source)
+		testSFS(*cpu, source)
 	}else if policy == "c"{
 		testCFS(*cpu, source)
 	}else{
@@ -53,7 +53,7 @@ func testSTCF(cpu int, source string, optimal string){
 	trace, _ := GetTrace(source)
 	Simulate_schedule(trace, optimal, cpu)
 }
-func testMLFQ(cpu int, source string){
+func testSFS(cpu int, source string){
 	wg := sync.WaitGroup{}
         trace, num := GetTrace(source)
         cache := make(chan PidI)

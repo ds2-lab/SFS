@@ -20,7 +20,6 @@ var pids [10000000] int
 var et [1000000] time.Time
 
 func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num int, ts_chan chan PidI, ts *Threshold){
-	defer wg.Done()
 	//receiver 1)  
 	//         2) delete jobs if receive the job again
 	//         3) send job to first queue
@@ -43,9 +42,9 @@ func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num 
 				ts_chan <- new_x
 			}else if jobs[x.Id] == 3 && credits[x.Id] > 0{
 				//sleep & wake jobs
-                                fmt.Println("logs this is sleep & waitup jobs")
+				//fmt.Println("logs this is sleep & waitup jobs")
                                 jobs[x.Id] = 2
-                                cur_credit := int(remain[x.Id]*float64(ts.T))
+				cur_credit := int(remain[x.Id]*float64(ts.T))
                                 new_x := PidI{x.Pid, x.Job, x.N, x.Id,time.Now(), cur_credit}
                                 ts_chan <- new_x
 				queue <- new_x
@@ -53,7 +52,10 @@ func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num 
 				jobs[x.Id] = 0
 				credits[x.Id] = -2
 				num_job += 1
+				//fmt.Println("nums", num_job)
 				if (num_job >= num){
+					fmt.Println(num, num_job)
+					wg.Done()
 					return
 				}
 			}
@@ -100,10 +102,10 @@ func boostSleepingJobs(in chan PidI){
 	for{
 		for k, v := range jobs{
 			if v == 2{
-				fmt.Println("logs jobs k, v ", k, v, pids[k])
+				//fmt.Println("logs jobs k, v ", k, v, pids[k])
 				if GetProcessState(pids[k]) == 1{
 					//PidI{0,job.Job,job.N,job.Id,time.Now(), job.Credit}
-					fmt.Println("logs sleeping jobs activate and send")
+					//fmt.Println("logs sleeping jobs activate and send")
 					new_pid := PidI{pids[k], "fib", 20, k, time.Now(),credits[k]}
 					jobs[k] = 3
 					in <- new_pid
@@ -122,7 +124,7 @@ func boostCFSJobs(in chan PidI, threshold int, ts_chan chan PidI){
                                 //fmt.Println("logs jobs k, v ", k, v)
 				if int(o.Sub(et[k]).Milliseconds()) > threshold && GetProcessState(pids[k]) == 1{
                                         //PidI{0,job.Job,job.N,job.Id,time.Now(), job.Credit}
-                                        fmt.Println("logs cfs job boost")
+                                        //fmt.Println("logs cfs job boost")
                                         new_pid := PidI{pids[k], "fib", 20, k, time.Now(),credits[k]}
                                         jobs[k] = 5
                                         in <- new_pid
@@ -151,14 +153,14 @@ func (t *Threshold) AdjustThreshold(ts_chan chan PidI, period int, n int){
                                 interval_time = int(inc_time.Sub(cur_time).Milliseconds())
 				interval_array[count-1] = interval_time
 				count = 0
-				fmt.Println("interval_time", interval_array)
+				//fmt.Println("interval_time", interval_array)
 				t.T = calcuMean(interval_array)*n
-				fmt.Println("logs New threshold ", t.T)
+				//fmt.Println("logs New threshold ", t.T)
 				interval_array = make([]int, period)
 			}else{
 				inc_time := time.Now()
 				interval_time = int(inc_time.Sub(cur_time).Milliseconds())
-				fmt.Println("logs iat ",interval_time)
+				//fmt.Println("logs iat ",interval_time)
 				interval_array[count-1] = interval_time
 				cur_time = inc_time
 			}
@@ -227,15 +229,14 @@ func (q *Queue) Schedule(actions RWMap, cache chan PidI, in chan PidI, out chan 
 				fmt.Println("logs q1 Time start", x.Job, time.Now())
 			}
 			s1 = 0
-			fmt.Println("logs path", q.Core, x)
+			//fmt.Println("logs path", q.Core, x)
 			if on == 0{
 				new_pid := PidI{-1, "minus", q.UpdateValue, -1,time.Now(), x.Credit}
                                 cfs_chan <- new_pid
 				on = 1
 			}
 			o := time.Now()
-                        queue_delay := int(o.Sub(x.St).Milliseconds())
-                        fmt.Println("logs queue delay ", x.Id, queue_delay)
+                        //queue_delay := int(o.Sub(x.St).Milliseconds())
                         // use default cfs scheduleor
                         if int(o.Sub(x.St).Milliseconds()) > 3 * ts.T{
                                 jobs[x.Id] = 2
@@ -243,7 +244,6 @@ func (q *Queue) Schedule(actions RWMap, cache chan PidI, in chan PidI, out chan 
                                 cfs_chan <-x
                                 pids[x.Id] = x.Pid
                                 et[x.Id] = time.Now()
-                                fmt.Println("logs cfs scheduler running")
                                 continue
                         }
 			//actions.Lock()
@@ -259,7 +259,6 @@ func (q *Queue) Schedule(actions RWMap, cache chan PidI, in chan PidI, out chan 
 				exec_time = credits[x.Id]
 			}
 			for s1 < exec_time{
-				//fmt.Println("logs exec", q.Core, s1)
 				time.Sleep(time.Duration(1)*time.Millisecond)
 				s1 += 1
 				if(q.CheckTerminated(x,actions) == -1){
@@ -274,8 +273,6 @@ func (q *Queue) Schedule(actions RWMap, cache chan PidI, in chan PidI, out chan 
 					break
 				}
 			}
-			//if(q.CheckTerminated(x,actions) == 1){
-				//transfer job to next later
 			if (q.LastLayer != 1){
 				go UpdateFunc(x.Pid, q.Core, "20")
 				//SwitchFunc(x.Pid, GetCFSCpuCores(cpu))
@@ -314,7 +311,7 @@ func HandleCFSChan(actions RWMap, in chan PidI, m map[string]int, cfs_value int6
 		select{
 		case x,_ := <-in:
 			a += 1
-			if a >= 1000000 && x.Pid == -1{
+			if a >= 10000 && x.Pid == -1{
 				fmt.Println(a)
 			}
 		}
@@ -353,7 +350,7 @@ func Scheduler(wg *sync.WaitGroup, cache chan PidI, cpu int, num int){
 	go receive(cache, chan1, GetCFSCpuCores(cpu), &wg_receive, num, tsChan, &ts_instance)
 	go ts_instance.AdjustThreshold(tsChan, 200, cpu)
 	go boostSleepingJobs(chan1)
-	boostCFSJobs(chan1, 20000, tsChan)
+	//go boostCFSJobs(chan1, 20000, tsChan)
 	wg_receive.Wait()
 
 }
