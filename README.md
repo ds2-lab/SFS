@@ -55,3 +55,14 @@ Usage of ./main:
   -t string
     	trace
 ```
+#### Adaptive time slice
+
+disable Adaptive time slice by comment line 351 in SFS-standaline/sfs.go and we could configure a fix time slice by change initial value on line 337.
+
+#### Overhead handling
+
+disable hyhird strategy by comment line 348 in SFS-standaline/sfs.go
+
+#### IO handling
+
+disable IO handling by comment line 352 in SFS-standaline/sfs.go
