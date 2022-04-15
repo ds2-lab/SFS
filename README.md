@@ -39,3 +39,19 @@ go build & go run main.go #start SFS scheduler
 ```
 go build & go run run.go #submit requests
 ```
+
+### Evaluation
+
+#### CPU, Policy and trace
+
+```
+Usage of ./main:
+  -n int
+    	# of cpu cores (default 16)
+  -o string
+    	STCF optimal values (default "optimal.txt")
+  -p string
+    	scheduling policys: m:SFS; c:CFS, s: SRTF (default "m")
+  -t string
+    	trace
+```
