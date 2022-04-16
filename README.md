@@ -59,16 +59,16 @@ Usage of ./main:
 ```
 #### Adaptive time slice
 
-disable Adaptive time slice by adding comment on line 351 in SFS-standaline/sfs.go and we could configure a fix time slice by change initial value on line 337.
+To disable Adaptive time slice you can comment out line 351 in SFS-standaline/sfs.go and you could configure a fix time slice by change initial value on line 337.
 
 #### Overhead handling
 
-disable hyhird strategy by adding comment on line 348 in SFS-standaline/sfs.go
+To disable hybrid strategy, you can comment out line 348 of SFS-standalone/sfs.go.
 
 #### IO handling
 
-disable IO handling by adding comment on line 352 in SFS-standaline/sfs.go
+To disable IO handling, you can comment out line 352 in SFS-standaline/sfs.go
 
 #### IAT rate
 
-could configure IAT rate on line 45 in SFS-standaline/readTrace.go
+You could configure IAT rate on line 45 in SFS-standaline/readTrace.go
