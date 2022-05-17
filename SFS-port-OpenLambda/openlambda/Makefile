@@ -17,8 +17,8 @@ imgs/lambda: $(LAMBDA_FILES)
 	docker build -t lambda lambda
 	touch imgs/lambda
 
-ol: $(OL_GO_FILES)
-	cd $(OL_DIR) && $(GO) build -mod vendor -o ../ol
+ol: 
+	cd $(OL_DIR) && $(GO) build -o ../ol
 
 install: ol
 	cp ol /usr/local/bin
