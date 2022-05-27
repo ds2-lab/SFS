@@ -1,5 +1,5 @@
 # SFS
-
+[![DOI](https://zenodo.org/badge/480597485.svg)](https://zenodo.org/badge/latestdoi/480597485)
 ## Description
 
  SFS(Smarter Function Scheduler) is an entirely user-space scheduler which carefully orchestrates existing Linux FIFO and CFS schedulers to approximate shortest remaining Time First(SRTF).
