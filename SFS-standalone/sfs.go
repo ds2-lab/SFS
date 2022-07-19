@@ -19,7 +19,7 @@ var remain [100000] float64
 var pids [10000000] int
 var et [1000000] time.Time
 
-func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num int, ts_chan chan PidI, ts *Threshold){
+func receive(in chan PidI, queue chan PidI, core string,wg_re *sync.WaitGroup, num int, ts_chan chan PidI, ts *Threshold){
 	//receiver 1)  
 	//         2) delete jobs if receive the job again
 	//         3) send job to first queue
@@ -53,9 +53,9 @@ func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num 
 				credits[x.Id] = -2
 				num_job += 1
 				//fmt.Println("nums", num_job)
-				if (num_job >= num){
+				if (num_job >= num-1){
 					fmt.Println(num, num_job)
-					wg.Done()
+					wg_re.Done()
 					return
 				}
 			}
@@ -69,6 +69,9 @@ func receive(in chan PidI, queue chan PidI, core string,wg *sync.WaitGroup, num 
 				ts_chan <- new_x
 				//queue <- new_x
 			}
+			case <-time.After(60 * time.Second):
+				wg_re.Done()
+                        	return
 			**/
 		}
 	}
