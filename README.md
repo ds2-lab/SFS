@@ -15,7 +15,7 @@
 
 ### System Configuration
 
-# ulimit -n 1024000
+* ulimit -n 1024000
 
 ### Installing
 
