@@ -13,6 +13,10 @@
 * schedtool version == v1.3.0
 * python
 
+### System Configuration
+
+# ulimit -n 1024000
+
 ### Installing
 
 #### SFS-Standalone-image
