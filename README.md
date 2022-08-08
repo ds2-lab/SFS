@@ -11,7 +11,7 @@
 * Operating System: Ubuntu 20.04
 * go version == 1.17.2
 * schedtool version == v1.3.0
-* python
+* python2.7
 
 ### System Configuration
 
