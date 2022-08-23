@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/480597485.svg)](https://zenodo.org/badge/latestdoi/480597485)
 ## Description
 
- SFS(Smarter Function Scheduler) is an entirely user-space scheduler which carefully orchestrates existing Linux FIFO and CFS schedulers to approximate shortest remaining Time First(SRTF).
+ SFS(Smart Function Scheduler) is an entirely user-space scheduler which carefully orchestrates existing Linux FIFO and CFS schedulers to approximate shortest remaining Time First (SC'22)
 
 ## Getting Started
 
@@ -11,7 +11,6 @@
 * Operating System: Ubuntu 20.04
 * go version == 1.17.2
 * schedtool version == v1.3.0
-* python2.7
 
 ### System Configuration
 
