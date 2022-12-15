@@ -84,20 +84,18 @@ You could configure IAT rate on line 45 in SFS-standalone/readTrace.go
 
 ### To cite SFS
 ```
-@INPROCEEDINGS {,
-author = {Y. Fu and L. Liu and H. Wang and Y. Cheng and S. Chen},
-booktitle = {2022 SC22: International Conference for High Performance Computing, Networking, Storage and Analysis (SC) (SC)},
+@inproceedings{10.5555/3571885.3571940,
+author = {Fu, Yuqi and Liu, Li and Wang, Haoliang and Cheng, Yue and Chen, Songqing},
 title = {SFS: Smart OS Scheduling for Serverless Functions},
 year = {2022},
-volume = {},
-issn = {2167-4337},
-pages = {584-599},
-abstract = {},
-keywords = {cloud computing;operating systems;performance evaluation},
-doi = {},
-url = {https://doi.ieeecomputersociety.org/},
-publisher = {IEEE Computer Society},
-address = {Los Alamitos, CA, USA},
-month = {nov}
+isbn = {9784665454445},
+publisher = {IEEE Press},
+abstract = {Serverless computing enables a new way of building and scaling cloud applications by allowing developers to write fine-grained serverless or cloud functions. The execution duration of a cloud function is typically short---ranging from a few milliseconds to hundreds of seconds. However, due to resource contentions caused by public clouds' deep consolidation, the function execution duration may get significantly prolonged and fail to accurately account for the function's true resource usage. We observe that the function duration can be highly unpredictable with huge amplification of more than 50\texttimes{} for an open-source FaaS platform (OpenLambda). Our experiments show that the OS scheduling policy of cloud functions' host server can have a crucial impact on performance. The default Linux scheduler, CFS (Completely Fair Scheduler), being oblivious to workloads, frequently context-switches short functions, causing a turnaround time that is much longer than their service time.We propose SFS (Smart Function Scheduler), which works entirely in the user space and carefully orchestrates existing Linux FIFO and CFS schedulers to approximate Shortest Remaining Time First (SRTF). SFS uses two-level scheduling that seamlessly combines a new FILTER policy with Linux CFS, to trade off increased duration of long functions for significant performance improvement for short functions. We implement SFS in the Linux user space and port it to OpenLambda. Evaluation results show that SFS significantly improves short functions' duration with a small impact on relatively longer functions, compared to CFS.},
+booktitle = {Proceedings of the International Conference on High Performance Computing, Networking, Storage and Analysis},
+articleno = {42},
+numpages = {16},
+keywords = {performance evaluation, operating systems, cloud computing},
+location = {Dallas, Texas},
+series = {SC '22}
 }
 ```
