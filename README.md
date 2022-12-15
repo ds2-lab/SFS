@@ -6,6 +6,7 @@
 SFS (Smart Function Scheduler) is a user-space OS scheduler that carefully orchestrates existing Linux kernel-space scheduling policies, FIFO and CFS, to approximate the optimal offline scheduling policy Shortest Remaining Time First (SC'22).
 
 To access the paper from ACM DL: https://dl.acm.org/doi/abs/10.5555/3571885.3571940
+
 To access our arXiv preprint: https://arxiv.org/abs/2209.01709 
 
 ## Getting Started
